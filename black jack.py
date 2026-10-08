@@ -89,14 +89,8 @@ with col3:
     if st.button("リセット"):
         reset_game()
 with col4:
-    if "show_text" not in st.session_state:
-       st.session_state.show_text = True
-
-    if st.button("表示/非表示 切り替え"):
-       st.session_state.show_text = not st.session_state.show_text
-
-    if st.session_state.show_text:
-       st.write("これはトグルボタンで表示/非表示を切り替えられる文章です。")
+    if st.button("ルール"):
+        rule()
 
 # 現在の手札と合計表示
 st.write("### あなたの手札:", st.session_state.player_cards)
