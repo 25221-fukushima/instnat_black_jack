@@ -88,8 +88,7 @@ with col2:
 with col3:
     if st.button("リセット"):
         reset_game()
-with col4:
-    if st.button("ルール"):
+if st.button("ルール"):
         rule()
 
 # 現在の手札と合計表示
