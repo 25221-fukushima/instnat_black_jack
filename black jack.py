@@ -13,7 +13,6 @@ if 'dealer_total' not in st.session_state:
     st.session_state.dealer_total = 0
 if 'game_over' not in st.session_state:
     st.session_state.game_over = False
-st.session_rule = 0
 
 # カードを引く関数（Aは1または11）
 def deal_card(hand):
@@ -67,12 +66,9 @@ def reset_game():
 
 #ルール
 def rule():
-    if st.session_rule == 0:  
-        st.write("「一枚引く」を選択してカードを引く")
-        st.write("21に近づける ピッタリを目指そう")
-        st.write("「勝負」を押して相手よりも21に近かったら勝利")
-        st.session_rule = 1
-    else:
+    st.write("「一枚引く」を選択してカードを引く")
+    st.write("21に近づける ピッタリを目指そう")
+    st.write("「勝負」を押して相手よりも21に近かったら勝利")
         
 # ゲーム開始時の初期手札
 if st.session_state.player_total == 0 and not st.session_state.game_over:
