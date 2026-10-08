@@ -96,8 +96,14 @@ if st.session_state.game_over:
     elif st.session_state.dealer_total > 21:
         st.write("相手が21を超過した！あなたの勝ち！")
     elif st.session_state.player_total > st.session_state.dealer_total:
-        st.write("あなたの方が21に近い!あなたの勝ち！")
+        if st.session_state.player_total == 21:
+            st.write("ピッタリ21!あなたの勝利！")
+        else:
+            st.write("あなたの方が21に近い!あなたの勝ち！")
     elif st.session_state.player_total < st.session_state.dealer_total:
-        st.write("相手の方が21に近い!相手の勝ち！")
+        if st.session_state.dealer_total == 21:
+            st.write("相手がピッタリ21!相手の勝ち!")
+        else:
+            st.write("相手の方が21に近い!相手の勝ち！")
     else:
         st.write("引き分け！")
