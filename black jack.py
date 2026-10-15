@@ -96,7 +96,7 @@ if st.button("ルール"):
 
 # 現在の手札と合計表示
 st.write(f"### {name}の手札:", st.session_state.player_cards)
-st.write("### {name}の合計:", st.session_state.player_total)
+st.write(f"### {name}の合計:", st.session_state.player_total)
 st.write("### 相手の手札:", st.session_state.dealer_cards if st.session_state.game_over else [st.session_state.dealer_cards[0], '?'])
 st.write("### 相手の合計:", st.session_state.dealer_total if st.session_state.game_over else '?')
 
