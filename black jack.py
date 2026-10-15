@@ -70,6 +70,7 @@ def rule():
     st.write("2．21に近づける ピッタリを目指そう")
     st.info("「勝負」を押して相手よりも21に近かったら勝利")
     st.error("21を超えてしまうとその時点で負けが確定してしまう！注意！")
+    st.success("大まかな勝敗は右上に表示されます")
         
 # ゲーム開始時の初期手札
 if st.session_state.player_total == 0 and not st.session_state.game_over:
