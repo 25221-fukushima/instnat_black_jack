@@ -78,6 +78,7 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 # タイトル表示
 st.title("簡易ブラックジャック")
 st.warning("21を超えず、なるべく近い値にしよう")
+name = st.text_input("名前を入力してください")
 # プレイヤー操作ボタン
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -94,8 +95,8 @@ if st.button("ルール"):
     
 
 # 現在の手札と合計表示
-st.write("### あなたの手札:", st.session_state.player_cards)
-st.write("### あなたの合計:", st.session_state.player_total)
+st.write(f"### {name}の手札:", st.session_state.player_cards)
+st.write("### {name}の合計:", st.session_state.player_total)
 st.write("### 相手の手札:", st.session_state.dealer_cards if st.session_state.game_over else [st.session_state.dealer_cards[0], '?'])
 st.write("### 相手の合計:", st.session_state.dealer_total if st.session_state.game_over else '?')
 
@@ -104,13 +105,13 @@ if st.session_state.game_over:
     if st.session_state.player_total > 21:
         st.error("21を超過してしまった！相手の勝ち！")
     elif st.session_state.dealer_total > 21:
-        st.success("相手が21を超過した！あなたの勝ち！")
+        st.success(f"相手が21を超過した！{name}の勝ち！")
     elif st.session_state.player_total > st.session_state.dealer_total:
         if st.session_state.player_total == 21:
-            st.success("ピッタリ21!あなたの勝利！")
+            st.success(f"ピッタリ21!{name}の勝利！")
             st.balloons()
         else:
-            st.success("あなたの方が21に近い!あなたの勝ち！")
+            st.success(f"あなたの方が21に近い!{name}の勝ち！")
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
             st.error("相手がピッタリ21!相手の勝ち!")
