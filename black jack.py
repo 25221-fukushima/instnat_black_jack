@@ -104,24 +104,25 @@ st.write("### 相手の合計:", st.session_state.dealer_total if st.session_sta
 if st.session_state.game_over:
     if st.session_state.player_total > 21:
         st.error("21を超過してしまった！相手の勝ち！")
-        st.header("you lose")
+        st.toast("you lose")
     elif st.session_state.dealer_total > 21:
         st.success(f"相手が21を超過した！{name}の勝ち！")
-        st.header("you win")
+        st.toast("you win")
     elif st.session_state.player_total > st.session_state.dealer_total:
         if st.session_state.player_total == 21:
             st.success(f"ピッタリ21!{name}の勝利！")
-            st.header("you win")
+            st.toast("you win")
             st.balloons()
         else:
             st.success(f"あなたの方が21に近い!{name}の勝ち！")
-            st.header("you win")
+            st.toast("you win")
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
             st.error("相手がピッタリ21!相手の勝ち!")
-            st.header("you lose")
+            st.toast("you lose")
         else:
             st.error("相手の方が21に近い!相手の勝ち！")
-            st.subheader("you lose")
+            st.toast("you lose")
     else:        
         st.warning("引き分け！")
+        st.toast("draw")
