@@ -66,8 +66,8 @@ def reset_game():
 
 #ルール
 def rule():
-    st.write("「一枚引く」を選択してカードを引く")
-    st.write("21に近づける ピッタリを目指そう")
+    st.write("1．「一枚引く」を選択してカードを引く")
+    st.write("2．21に近づける ピッタリを目指そう")
     st.info("「勝負」を押して相手よりも21に近かったら勝利")
     st.error("21を超えてしまうとその時点で負けが確定してしまう！注意！")
         
@@ -77,7 +77,7 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 
 # タイトル表示
 st.title("簡易ブラックジャック")
-st.write("21を超えず、なるべく近い値にしよう")
+st.warning("21を超えず、なるべく近い値にしよう")
 # プレイヤー操作ボタン
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -102,7 +102,7 @@ st.write("### 相手の合計:", st.session_state.dealer_total if st.session_sta
 # ゲーム終了判定
 if st.session_state.game_over:
     if st.session_state.player_total > 21:
-        st.warning("21を超過してしまった！相手の勝ち！")
+        st.error("21を超過してしまった！相手の勝ち！")
     elif st.session_state.dealer_total > 21:
         st.success("相手が21を超過した！あなたの勝ち！")
     elif st.session_state.player_total > st.session_state.dealer_total:
@@ -113,8 +113,8 @@ if st.session_state.game_over:
             st.success("あなたの方が21に近い!あなたの勝ち！")
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
-            st.warning("相手がピッタリ21!相手の勝ち!")
+            st.error("相手がピッタリ21!相手の勝ち!")
         else:
-            st.warning("相手の方が21に近い!相手の勝ち！")
+            st.error("相手の方が21に近い!相手の勝ち！")
     else:        
-        st.write("引き分け！")
+        st.warning("引き分け！")
