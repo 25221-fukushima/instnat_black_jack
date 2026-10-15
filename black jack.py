@@ -102,21 +102,19 @@ st.write("### 相手の合計:", st.session_state.dealer_total if st.session_sta
 # ゲーム終了判定
 if st.session_state.game_over:
     if st.session_state.player_total > 21:
-        st.write("21を超過してしまった！相手の勝ち！")
+        st.warning("21を超過してしまった！相手の勝ち！")
     elif st.session_state.dealer_total > 21:
-        st.write("相手が21を超過した！あなたの勝ち！")
-        st.balloons()
+        st.success("相手が21を超過した！あなたの勝ち！")
     elif st.session_state.player_total > st.session_state.dealer_total:
         if st.session_state.player_total == 21:
-            st.write("ピッタリ21!あなたの勝利！")
+            st.success("ピッタリ21!あなたの勝利！")
             st.balloons()
         else:
-            st.write("あなたの方が21に近い!あなたの勝ち！")
-            st.balloons()
+            st.success("あなたの方が21に近い!あなたの勝ち！")
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
-            st.write("相手がピッタリ21!相手の勝ち!")
+            st.warning("相手がピッタリ21!相手の勝ち!")
         else:
-            st.write("相手の方が21に近い!相手の勝ち！")
+            st.warning("相手の方が21に近い!相手の勝ち！")
     else:
         st.write("引き分け！")
