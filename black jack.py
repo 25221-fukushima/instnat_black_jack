@@ -105,11 +105,14 @@ if st.session_state.game_over:
         st.write("21を超過してしまった！相手の勝ち！")
     elif st.session_state.dealer_total > 21:
         st.write("相手が21を超過した！あなたの勝ち！")
+        st.balloons()
     elif st.session_state.player_total > st.session_state.dealer_total:
         if st.session_state.player_total == 21:
             st.write("ピッタリ21!あなたの勝利！")
+            st.balloons()
         else:
             st.write("あなたの方が21に近い!あなたの勝ち！")
+            st.balloons()
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
             st.write("相手がピッタリ21!相手の勝ち!")
