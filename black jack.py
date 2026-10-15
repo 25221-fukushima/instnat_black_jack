@@ -1,6 +1,7 @@
 # Python + Streamlit
 import streamlit as st
 import random
+import time
 
 # 初期化
 if 'player_cards' not in st.session_state:
@@ -103,6 +104,18 @@ st.write("### 相手の合計:", st.session_state.dealer_total if st.session_sta
 if st.session_state.game_over:
     if st.session_state.player_total > 21:
         st.warning("21を超過してしまった！相手の勝ち！")
+        st.markdown(
+        """
+        <script>
+        const original = document.body.style.backgroundColor;
+        document.body.style.backgroundColor = "red";
+        setTimeout(() => {
+            document.body.style.backgroundColor = original;
+        }, 200);  // 200msだけ赤くする
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
     elif st.session_state.dealer_total > 21:
         st.success("相手が21を超過した！あなたの勝ち！")
     elif st.session_state.player_total > st.session_state.dealer_total:
@@ -114,7 +127,30 @@ if st.session_state.game_over:
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
             st.warning("相手がピッタリ21!相手の勝ち!")
+            st.markdown(
+       　　　　　"""
+                <script>
+                const original = document.body.style.backgroundColor;
+                document.body.style.backgroundColor = "red";
+                setTimeout(() => {
+                    document.body.style.backgroundColor = original;
+                }, 200);  // 200msだけ赤くする
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
         else:
             st.warning("相手の方が21に近い!相手の勝ち！")
-    else:
+            st.markdown(
+        　　　　"""
+        　　　　<script>
+        　　　　const original = document.body.style.backgroundColor;
+       　　　　 document.body.style.backgroundColor = "red";
+        　　　　setTimeout(() => {
+            　　　　document.body.style.backgroundColor = original;
+        　　　　}, 200);  // 200msだけ赤くする
+       　　　　 </script>
+        　　　　""",
+       　　　　 unsafe_allow_html=True
+   　　　　 )
         st.write("引き分け！")
