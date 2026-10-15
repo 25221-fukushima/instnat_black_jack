@@ -91,7 +91,6 @@ with col3:
         reset_game()
 if st.button("ルール"):
         rule()
-if st.button("閉じる"):
     
 
 # 現在の手札と合計表示
