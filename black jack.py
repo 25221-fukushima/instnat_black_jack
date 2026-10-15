@@ -66,7 +66,8 @@ def reset_game():
 
 #ルール
 def rule():
-    st.write("「一枚引く」を選択してカードを引く")
+    a = "「一枚引く」を選択してカードを引く"
+    st.write(a)
     st.write("21に近づける ピッタリを目指そう")
     st.write("「勝負」を押して相手よりも21に近かったら勝利")
     st.write("21を超えてしまうとその時点で負けが確定してしまう！注意！")
@@ -91,6 +92,8 @@ with col3:
         reset_game()
 if st.button("ルール"):
         rule()
+if st.button("閉じる"):
+    
 
 # 現在の手札と合計表示
 st.write("### あなたの手札:", st.session_state.player_cards)
