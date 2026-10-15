@@ -77,7 +77,7 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 
 # タイトル表示
 st.title("簡易ブラックジャック")
-st.warning("21を超えず、なるべく近い値にしよう")
+st.header("21を超えず、なるべく近い値にしよう")
 name = st.text_input("名前を入力してください")
 # プレイヤー操作ボタン
 col1, col2, col3 = st.columns(3)
