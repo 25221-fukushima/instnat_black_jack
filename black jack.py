@@ -2,6 +2,10 @@
 import streamlit as st
 import random
 
+art = """
+over!
+(;_;)
+"""
 # 初期化
 if 'player_cards' not in st.session_state:
     st.session_state.player_cards = []
@@ -103,6 +107,7 @@ st.write("### 相手の合計:", st.session_state.dealer_total if st.session_sta
 if st.session_state.game_over:
     if st.session_state.player_total > 21:
         st.warning("21を超過してしまった！相手の勝ち！")
+        st.text(art)
     elif st.session_state.dealer_total > 21:
         st.success("相手が21を超過した！あなたの勝ち！")
     elif st.session_state.player_total > st.session_state.dealer_total:
