@@ -80,7 +80,7 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 st.title("簡易ブラックジャック")
 st.header("21を超えず、なるべく近い値にしよう")
 # プレイヤー操作ボタン
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(3)
 with col1:
     if st.button("一枚引く"):
         player_hit()
@@ -90,7 +90,8 @@ with col2:
 with col3:
     if st.button("リセット"):
         reset_game()
-if st.button("ルール"):
+with col4:
+    if st.button("ルール"):
         rule()
 
 # 現在の手札と合計表示
