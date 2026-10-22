@@ -13,7 +13,6 @@ if 'dealer_total' not in st.session_state:
     st.session_state.dealer_total = 0
 if 'game_over' not in st.session_state:
     st.session_state.game_over = False
-win = 0
 
 # カードを引く関数（Aは1または11）
 def deal_card(hand):
@@ -73,9 +72,6 @@ def rule():
     st.error("21を超えてしまうとその時点で負けが確定してしまう！注意！")
     st.success("大まかな勝敗は右上に表示されます")
     st.toast("「リセット」を押して閉じる")
-#勝利数
-def won():
-    st.write(f"累計勝利数:{win}")
     
 # ゲーム開始時の初期手札
 if st.session_state.player_total == 0 and not st.session_state.game_over:
@@ -112,20 +108,14 @@ if st.session_state.game_over:
     elif st.session_state.dealer_total > 21:
         st.success("相手が21を超過した！あなたの勝ち！")
         st.toast("you win")
-        win += 1
-        won()
     elif st.session_state.player_total > st.session_state.dealer_total:
         if st.session_state.player_total == 21:
             st.success("ピッタリ21!あなたの勝利！")
             st.toast("you win")
             st.balloons()
-            win += 1
-            won()
         else:
             st.success("あなたの方が21に近い!あなたの勝ち！")
             st.toast("you win")
-            win += 1
-            won()
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
             st.error("相手がピッタリ21!相手の勝ち!")
