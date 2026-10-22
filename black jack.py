@@ -72,7 +72,10 @@ def rule():
     st.error("21を超えてしまうとその時点で負けが確定してしまう！注意！")
     st.success("大まかな勝敗は右上に表示されます")
     st.toast("「リセット」を押して閉じる")
-        
+#勝利数
+def won():
+    st.toast(f"累計勝利数:{win}")
+    
 # ゲーム開始時の初期手札
 if st.session_state.player_total == 0 and not st.session_state.game_over:
     reset_game()
@@ -80,6 +83,7 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 # タイトル表示
 st.title("簡易ブラックジャック")
 st.header("21を超えず、なるべく近い値にしよう")
+win = 1
 # プレイヤー操作ボタン
 col1, col2, col3, = st.columns(3)
 with col1:
@@ -108,14 +112,20 @@ if st.session_state.game_over:
     elif st.session_state.dealer_total > 21:
         st.success("相手が21を超過した！あなたの勝ち！")
         st.toast("you win")
+        win += 1
+        won()
     elif st.session_state.player_total > st.session_state.dealer_total:
         if st.session_state.player_total == 21:
             st.success("ピッタリ21!あなたの勝利！")
             st.toast("you win")
             st.balloons()
+            win += 1
+            won()
         else:
             st.success("あなたの方が21に近い!あなたの勝ち！")
             st.toast("you win")
+            win += 1
+            won()
     elif st.session_state.player_total < st.session_state.dealer_total:
         if st.session_state.dealer_total == 21:
             st.error("相手がピッタリ21!相手の勝ち!")
