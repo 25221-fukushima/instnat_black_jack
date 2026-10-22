@@ -92,7 +92,6 @@ with col3:
         reset_game()
 if st.button("ルール"):
         rule()
-    
 
 # 現在の手札と合計表示
 st.write("### あなたの手札:", st.session_state.player_cards)
