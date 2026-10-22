@@ -13,6 +13,7 @@ if 'dealer_total' not in st.session_state:
     st.session_state.dealer_total = 0
 if 'game_over' not in st.session_state:
     st.session_state.game_over = False
+win = 0
 
 # カードを引く関数（Aは1または11）
 def deal_card(hand):
@@ -83,7 +84,6 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 # タイトル表示
 st.title("簡易ブラックジャック")
 st.header("21を超えず、なるべく近い値にしよう")
-win = 0
 # プレイヤー操作ボタン
 col1, col2, col3, = st.columns(3)
 with col1:
