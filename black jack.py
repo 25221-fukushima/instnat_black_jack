@@ -74,7 +74,7 @@ def rule():
     st.toast("「リセット」を押して閉じる")
 #勝利数
 def won():
-    st.toast(f"累計勝利数:{win}")
+    st.write(f"累計勝利数:{win}")
     
 # ゲーム開始時の初期手札
 if st.session_state.player_total == 0 and not st.session_state.game_over:
