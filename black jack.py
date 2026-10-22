@@ -83,7 +83,7 @@ if st.session_state.player_total == 0 and not st.session_state.game_over:
 # タイトル表示
 st.title("簡易ブラックジャック")
 st.header("21を超えず、なるべく近い値にしよう")
-win = 1
+win = 0
 # プレイヤー操作ボタン
 col1, col2, col3, = st.columns(3)
 with col1:
